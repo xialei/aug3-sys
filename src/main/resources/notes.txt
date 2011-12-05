@@ -1,0 +1,66 @@
+------------------------------
+--  propcfg.properties
+------------------------------
+used in classpath, load in ConfigProperties.java
+
+
+------------------------------
+--  appconfig.properties
+------------------------------
+This should be different for company.
+If you want to specify a determined directory, then add "app.properties.path.enable=true" to boot.properties
+
+------------------------------
+--  boot.properties
+------------------------------
+
+
+------------------------------
+--  smartcache.properties
+------------------------------
+
+
+
+
+------------------------------
+--  systemcache.properties
+------------------------------
+
+
+
+------------------------------
+--  JMS update notifier is not open for logMgr
+------------------------------
+
+
+------------------------------
+--  cfg
+------------------------------
+Add the following parameters to environment:
+app.localcfg=true/false
+
+------------------------------
+--  activemq
+------------------------------
+need include 3 jars in the classpath: activemq-core.jar, activemq-pool.jar, commons-pool.jar
+
+------------------------------
+--  RMI
+------------------------------
+Provide sufficient access priviledges to the classes and jars using the RMI. 
+This is done using catalina.policy present in $CATALINA_HOME/conf. Below is the addition to the policy files:
+
+grant codeBase "file:${catalina.home}/webapps/MyAPP/WEB-INF/classes/-" { 
+    permission java.security.AllPermission "", ""; 
+}; 
+ 
+grant codeBase "file:${catalina.home}/webapps/MyAPP/WEB-INF/lib/-" { 
+    permission java.security.AllPermission "", ""; 
+}; 
+grant codeBase "file:${catalina.home}/webapps/MyAPP/WEB-INF/lib/some-common-3.0.jar" { 
+    permission java.io.FilePermission "*", "read, write"; 
+};
+
+------------------------------
+--  
+------------------------------

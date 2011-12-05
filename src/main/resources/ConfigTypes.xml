@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Each type of configuration data is represented by a ConfigType
+    object.  For example, workflow templates, appconfig.properties
+    and notification definitions all have their own ConfigType.
+
+    This file defines all the configuration types in the system.
+    The file is read at system startup time.  The StorageAdapterProxy
+    keeps type mapping and dispatch lookup calls to the storage adapter
+    implementation.
+-->
+
+<ConfigTypes xmlns              = "http://www.hp.com"
+             xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation = "http://www.hp.com ConfigTypes.xsd">
+
+<!-- 
+    <ConfigType name            = "appconfig"
+                displayName     = "appconfig Properties"
+                fileValueGetter = "com.aug3.sys.properties.StorageAdapter"
+                fileValueSetter = "com.aug3.sys.properties.StorageAdapter"
+                editable        = "true"
+                loadAll         = "true" />
+ -->
+ 
+    <ConfigType name            = "sets"
+                displayName     = "Company Set Config"
+                fileValueGetter = "com.hp.sssp.platform.sets.CompanySetConfigGetter"
+                editable        = "false"
+                loadAll         = "true" />
+                
+    <ConfigType name            = "propertiesfile"
+                displayName     = "Properties files"
+                fileValueGetter = "com.aug3.sys.properties.FilePropertiesGetter"
+                editable        = "false"
+                loadAll         = "true" />
+
+</ConfigTypes>
+
